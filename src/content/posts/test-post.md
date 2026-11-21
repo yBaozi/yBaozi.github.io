@@ -1,12 +1,10 @@
 ---
 title: test-post
 published: 2026-11-18
-description: ''
-image: ''
+description: 对于markdown格式，图床等测试帖子
 tags: [Demo]
 category: 'Demo'
 draft: false 
-lang: ''
 ---
 
 代码测试：
