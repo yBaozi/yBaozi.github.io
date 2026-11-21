@@ -1,7 +1,7 @@
 ---
 title: test-post
 published: 2026-11-18
-description: 对于markdown格式，图床等测试帖子
+description: 测试markdown格式，图床等内容的帖子
 tags: [Demo]
 category: 'Demo'
 draft: false 
