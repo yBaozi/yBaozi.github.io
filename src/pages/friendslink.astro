@@ -1,0 +1,47 @@
+---
+import { getEntry, render } from "astro:content";
+import Markdown from "@components/misc/Markdown.astro";
+import I18nKey from "../i18n/i18nKey";
+import { i18n } from "../i18n/translation";
+import MainGridLayout from "../layouts/MainGridLayout.astro";
+import FriendCardGroup from "@components/FriendCardGroup.astro";
+
+const friendslinkPost = await getEntry("spec", "friendslink");
+if (!friendslinkPost) {
+    throw new Error("Friendslink page content not found");
+}
+const { Content } = await render(friendslinkPost);
+
+// 只在这里维护分组数据！
+const groupfriends = [
+  {
+    name: "distjr_的博客",
+    avatar: "https://cdn.jsdelivr.net/gh/MikuMDream/img@main/PigGo/b_b5bf2d6725dd5650f5edf1d6a9140fbd.jpg",
+    desc: "欢迎阅读「404 | distjr_的博客」",
+    url: "https://ruufly.github.io/",
+  },
+];
+
+const groupOther = [
+  {
+    name: "测试站点A",
+    avatar: "https://xxx.example.com/avatar.png",
+    desc: "技术随记",
+    url: "https://xxx.example.com",
+  },
+];
+---
+
+<MainGridLayout title={i18n(I18nKey.friendslink)} description={i18n(I18nKey.friendslink)}>
+    <div class="flex w-full rounded-[var(--radius-large)] overflow-hidden relative min-h-32">
+        <div class="card-base z-10 px-9 py-6 relative w-full ">
+            <!-- markdown 说明文字放在上面 -->
+            <Markdown class="mt-2">
+                <Content />
+            </Markdown>
+            <!-- 调用分组组件，想挪位置就挪这两行 -->
+            <FriendCardGroup title="🏁 好友" list={groupfriends} />
+            <!--  <FriendCardGroup title="📎 其他站点" list={groupOther} />  -->
+        </div>
+    </div>
+</MainGridLayout>

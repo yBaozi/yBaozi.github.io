@@ -45,6 +45,11 @@ export const navBarConfig: NavBarConfig = {
 		LinkPreset.Archive,
 		LinkPreset.About,
 		{
+			name: "友链",
+			url: "/friendslink/",
+			external: false, // false：站内跳转，不新开标签
+		},
+		{
 			name: "更新日志",
 			url: "/changelog/",
 			external: false, // false：站内跳转，不新开标签
